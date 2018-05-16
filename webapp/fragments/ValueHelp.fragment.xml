@@ -1,7 +1,7 @@
 <core:FragmentDefinition id= "valuehelpfragment" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
 <SelectDialog
         id = "SelectDialog"
-		title="{path: 'InternalOrders>Input',
+		title="{path: 'ChangeInternalOrder>Input',
 				formatter: '.formatter.getValueHelpTitle'}"
 		class="sapUiPopupWithPadding"
 		items="{/ValueHelpSet}"
@@ -11,4 +11,3 @@
 			title="{Value}"/>
 	</SelectDialog>
 </core:FragmentDefinition>
-

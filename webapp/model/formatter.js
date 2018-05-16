@@ -3,6 +3,8 @@ sap.ui.define([], function () {
 	return {
 		getValueHelpTitle: function (resourceBundle, sInput) {
 			switch (sInput) {
+				case "AUFNR":
+					return resourceBundle.getText("order");
 				case "AUART":
 					return resourceBundle.getText("order_type");
 				case "BUKRS":
