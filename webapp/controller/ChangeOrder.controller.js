@@ -15,6 +15,104 @@ sap.ui.define([
 		},
 
 		handleSave: function(oEvent) {
+			// var compcode = this.getView().byId("BUKRS").getValue();
+			// var plant = this.getView().byId("WERKS").getValue();
+			// var curr = this.getView().byId("WAERS").getValue();
+			// if (compcode === "") {
+			// 	sap.m.MessageBox.alert("Please select Company Code");
+			// 	return true;
+			// } else if (plant === "") {
+			// 	sap.m.MessageBox.alert("Please select plant");
+			// 	return true;
+			// } else if (curr === "") {
+			// 	sap.m.MessageBox.alert("Please select currency under Control Data");
+			// 	return true;
+			// }
+
+			// this.getView().getModel().setDeferredGroups(["changeGroup"]);
+			// this.changeEntity();
+
+			// this.getView().getModel().submitChanges({
+			// 	groupId: "changeGroup",
+			// 	success: function(oData, oResponse) {
+			// 		var data = oData.__batchResponses[0];
+			// 		data = data.__changeResponses[0];
+			// 		data = data.data;
+			// 		var order = data.Order;
+			// 		if (order === "") {
+			// 			sap.m.MessageBox.alert(data.Message);
+			// 		} else {
+			// 			sap.m.MessageBox.alert(order + "Order Changed");
+			// 		}
+			// 	},
+			// 	error: function(oError, oResponse) {
+
+			// 		sap.m.MessageBox.alert("Failure");
+			// 	}
+			// });
+
+		},
+
+		onAfterRendering: function(oEvent) {
+			// var oModel = this.getView().getModel();
+			// oModel.attachMetadataLoaded(this.changeEntity.bind(this));
+		},
+		
+		changeEntity: function(oEvent) {
+
+			// var oContext = this.getView().getModel().createEntry("/InternalOrderSet", {
+			// 	"groupId": "changeGroup",
+			// 	properties: {
+			// 		"OrderType": this.getView().byId("AUART"),
+			// 		"Description": this.getView().byId("AUFTEXT"),
+			// 		"CompanyCode": this.getView().byId("BUKRS"),
+			// 		"BusinessArea": this.getView().byId("GSBER"),
+			// 		"Plant": this.getView().byId("WERKS"),
+			// 		"ProfitCenter": this.getView().byId("PRCTR"),
+			// 		"ResponsibleCCTR": this.getView().byId("KOSTL"),
+			// 		"UserResponsible": this.getView().byId("BNAME"),
+			// 		"WBSElement": this.getView().byId("PSPNR"),
+			// 		"RequestCCTR": this.getView().byId("REQUESTCCTR"),
+			// 		"RequestCode": this.getView().byId("REQCOD"),
+			// 		"RequestOrder": this.getView().byId("AUFNR"),
+			// 		// "SystemStatus": this.getView().byId(),
+			// 		// "UserStatus": this.getView().byId(),
+			// 		//   "StatusNumber": this.getView().byId(),
+			// 		"Currency": this.getView().byId("WAERS"),
+			// 		//     "OrderCategory": this.getView().byId(),
+			// 		"ActPosCCTR": this.getView().byId("ACTPOSCCTR"),
+			// 		//    "StatisOrder": this.getView().byId(),
+			// 		//    "PlanIntegOrder": this.getView().byId(),
+			// 		"ResultAnalysisKey": this.getView().byId("ABGSL"),
+			// 		"CostingSheet": this.getView().byId("KALSM"),
+			// 		"OverheadKey": this.getView().byId("ZSCHL"),
+			// 		"InterestProfile": this.getView().byId("ZSCHM"),
+			// 		"SettleCostElem": this.getView().byId("KSTAR"),
+			// 		"CostCenter": this.getView().byId("COSTCENTER"),
+			// 		"GLAccount": this.getView().byId("SAKNR"),
+			// 		// "Applicant": this.getView().byId(),
+			// 		// "Telephone1": this.getView().byId(),
+			// 		// "PersonResponsible": this.getView().byId(),
+			// 		// "Telephone2": this.getView().byId(),
+			// 		// "EstimatedCost": this.getView().byId(),
+			// 		"ProcessGroup": this.getView().byId("ABKRS"),
+			// 		// "ApplicationDate": this.getView().byId(),
+			// 		// "Department": this.getView().byId(),
+			// 		// "WorkStart": this.getView().byId(),
+			// 		// "EndWork": this.getView().byId(),
+			// 		"InvestProfile": this.getView().byId("IVPRO"),
+			// 		"Scale": this.getView().byId("SIZECL"),
+			// 		"InvestReason": this.getView().byId("IZWEK"),
+			// 		"EnvirInvestment": this.getView().byId("UMWKZ"),
+			// 		"InvestProgram": this.getView().byId("PRNAM"),
+			// 		// "PositionID": this.getView().byId(),
+			// 		"AssetClass": this.getView().byId("ANLKL")
+			// 			// "CapitalDate": this.getView().byId(),
+
+			// 	}
+			// });
+			// this.getView().getModel().setRefreshAfterChange(false);
+			// this.getView().setBindingContext(oContext);
 		},
 
 		handleCancel: function(oEvent) {
@@ -53,7 +151,6 @@ sap.ui.define([
 			if (fieldname === 'ORDER') {
 				this.toggleIconTabVisibility(oSelectedItem.getTitle());
 			}
-			//	evt.sap.ui.getCore().byId("items");
 		},
 
 		toggleIconTabVisibility: function(value) {
@@ -66,18 +163,12 @@ sap.ui.define([
 			}
 		},
 
-	//	orderTypeUpdate: function(evt) {
-			// var a = evt.getParameters();
-			// a = a.value;
-			// this.toggleIconTabVisibility(a);
-//		},
-		
 		onMasterData: function(evt){
-			var a = this.getView().byId("ORDER");
-			a = a.getValue();
-			this.toggleIconTabVisibility(a);
-			
-			this.getView().setBindingContext({Path:"/InternalOrderSet" });
+			var orderNumber = this.getView().byId("ORDER");
+			orderNumber = orderNumber.getValue();
+			this.toggleIconTabVisibility(orderNumber);
+//Below logic is the path to GET the details of particular set of data for particular order number
+			this.getView().bindElement({path:"/InternalOrderSet('" +  orderNumber + "')"  });
 		}
 
 	});

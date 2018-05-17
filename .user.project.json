@@ -13,10 +13,28 @@
       "backendSystem": [],
       "urlParametersNotNeeded": false,
       "_metadata": {
-        "runnerId": "webapprunner",
         "id": 8380846,
+        "runnerId": "webapprunner",
         "displayName": "Run index.html",
-        "lastRunTimeStamp": 1526447378069
+        "lastRunTimeStamp": 1526550551678
+      }
+    },
+    {
+      "filePath": "/webapp/Component.js",
+      "previewMode": 1,
+      "dataMode": 1,
+      "workspace": "withoutWorkspace",
+      "ui5ActiveVersion": null,
+      "ui5VerSource": null,
+      "isDefaultVersion": 0,
+      "urlParameters": [],
+      "hashParameter": "",
+      "backendSystem": [],
+      "_metadata": {
+        "id": 5229514,
+        "runnerId": "fiorirunner",
+        "displayName": "Run Component.js",
+        "lastRunTimeStamp": 1526547565607
       }
     }
   ]
