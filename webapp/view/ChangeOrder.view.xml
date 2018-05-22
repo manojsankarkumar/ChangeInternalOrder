@@ -150,7 +150,7 @@
 											</layoutData>
 										</Input>
 										<Label text="{i18n>order_cat}"/>
-										<Input id="order_cat" type="Text" textFormatMode="KeyValue" showSuggestion="true" showValueHelp="true" valueHelpRequest="ValueHelp" value="{OrderCategory}">
+										<Input id="AUFTYP" type="Text" textFormatMode="KeyValue" showSuggestion="true" showValueHelp="true" valueHelpRequest="ValueHelp" value="{OrderCategory}">
 											<suggestionItems>
 												<core:ListItem key="{ProductId}" text="{Name}" additionalText="{ProductId}"/>
 											</suggestionItems>

@@ -21,8 +21,10 @@ sap.ui.define([], function () {
 					return resourceBundle.getText("user_resp");
 				case "PSPNR":
 					return resourceBundle.getText("wbs");
-				case "AUFNR":
-					return resourceBundle.getText("request_order");
+				case "AUFTYP":
+					return resourceBundle.getText("order_cat");
+				// case "AUFNR":
+				// 	return resourceBundle.getText("request_order");
 			    case "WAERS":
 					return resourceBundle.getText("curr");
 				case "ABGSL":
