@@ -32,24 +32,16 @@ sap.ui.define([
 			this.getView().getModel().setDeferredGroups(["changeGroup"]);
 			this.changeEntity();
 
-			this.getView().getModel().submitChanges({
-				groupId: "changeGroup",
-				success: function(oData, oResponse) {
-					var data = oData.__batchResponses[0];
-					data = data.__changeResponses[0];
-					data = data.data;
-					var order = data.Order;
-					if (order === "") {
-						sap.m.MessageBox.alert(data.Message);
-					} else {
-						sap.m.MessageBox.alert(order + "Order Changed");
-					}
-				},
-				error: function(oError, oResponse) {
+			// this.getView().getModel().submitChanges({
+			// 	groupId: "changeGroup",
+			// 	success: function(oData, oResponse) {
+			// 			sap.m.MessageBox.alert("Order Updated");
+			// 	},
+			// 	error: function(oError, oResponse) {
 
-					sap.m.MessageBox.alert("Failure");
-				}
-			});
+			// 		sap.m.MessageBox.alert("Failure");
+			// 	}
+			// });
 
 		},
 
@@ -71,7 +63,7 @@ sap.ui.define([
 			oModelData.Plant = this.getView().byId("WERKS").getValue();
 			oModelData.ProfitCenter = this.getView().byId("PRCTR").getValue();
 			oModelData.ResponsibleCCTR = this.getView().byId("KOSTL").getValue();
-			oModelData.UserResponsible   = this.getView().byId("BNAME").getValue();
+			oModelData.UserResponsible = this.getView().byId("BNAME").getValue();
 			oModelData.WBSElement = this.getView().byId("PSPNR").getValue();
 			oModelData.RequestCCTR = this.getView().byId("REQUESTCCTR").getValue();
 			oModelData.RequestCode = this.getView().byId("REQCOD").getValue();
@@ -110,26 +102,19 @@ sap.ui.define([
 			oModelData.AssetClass = this.getView().byId("ANLKL").getValue();
 			// oModelData.CapitalDate = this.getView().byId().getValue();
 
+			this.getView().getModel().setRefreshAfterChange(false);
+
 			var oModel = this.getView().getModel();
 			oModel.update("/InternalOrderSet('" + oModelData.Order + "')", oModelData, {
 				method: "PUT",
-			success: function(oData, oResponse) {
-					var data = oData.__batchResponses[0];
-					data = data.__changeResponses[0];
-					data = data.data;
-					var order = data.Order;
-					if (order === "") {
-						sap.m.MessageBox.alert(data.Message);
-					} else {
-						sap.m.MessageBox.alert(order + "Order Updated");
-					}
+				success: function(oData, oResponse) { /*Changed oData to oModelData*/
+					sap.m.MessageBox.alert("Order Updated");
 				},
 				error: function(oError, oResponse) {
-
 					sap.m.MessageBox.alert("Failure");
 				}
 			});
-		
+
 		},
 
 		handleCancel: function(oEvent) {
