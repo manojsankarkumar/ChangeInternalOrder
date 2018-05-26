@@ -19,13 +19,13 @@ sap.ui.define([
 			var plant = this.getView().byId("WERKS").getValue();
 			var curr = this.getView().byId("WAERS").getValue();
 			if (compcode === "") {
-				sap.m.MessageBox.alert("Please select Company Code");
+				MessageBox.warning("Please select Company Code");
 				return true;
 			} else if (plant === "") {
-				sap.m.MessageBox.alert("Please select plant");
+				MessageBox.warning("Please select plant");
 				return true;
 			} else if (curr === "") {
-				sap.m.MessageBox.alert("Please select currency under Control Data");
+				MessageBox.warning("Please select currency under Control Data");
 				return true;
 			}
 
@@ -118,7 +118,18 @@ sap.ui.define([
 		},
 
 		handleCancel: function(oEvent) {
-
+             var bCompact = !!this.getView().$().closest(".sapUiSizeCompact").length;
+			MessageBox.confirm(
+				"Are you sure you don't want to change?", {
+					styleClass: bCompact ? "sapUiSizeCompact" : "",
+					actions: [sap.m.MessageBox.Action.YES, sap.m.MessageBox.Action.NO],
+					onClose: function(oAction) {
+                      if(sap.m.MessageBox.Action.YES === oAction){
+                      		window.history.go(-1);
+                      }
+					}
+				});
+			return true;
 		},
 
 		ValueHelp: function(oEvent) {

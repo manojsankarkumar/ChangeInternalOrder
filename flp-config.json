@@ -1,0 +1,34 @@
+{
+    "application": {
+        "id": "",
+        "title": "ChangeInternalOrder",
+        "type": "SAP_UI5_Component",
+        "componentUrl": "/",
+        "appUrl": "#ChangeInternalOrder-Display",
+        "navigationComponentName": "ChangeInternalOrder",
+        "intentSemanticObject": "ChangeInternalOrder",
+        "intentAction": "Display",
+        "html5ApplicationName": "changeinternalorder",
+        "HCPParentApplicationName": ""
+    },
+    "assignment": {
+        "groups": [
+            "a7c89d40-06c5-48f0-a420-c9e08ee13d19"
+        ],
+        "contentPackages": [
+            "3fbdd49e-011f-4d0b-bf9c-0d766d010b9b"
+        ],
+        "categories": []
+    },
+    "tile": {
+        "type": "StaticTile",
+        "title": "Change Internal Order",
+        "subtitle": "",
+        "searchKeywords": "Change Internal Order,",
+        "displayIconUrl": "sap-icon://edit",
+        "displayInfoText": "",
+        "size": "1x1",
+        "serviceURL": "",
+        "refreshInterval": ""
+    }
+}

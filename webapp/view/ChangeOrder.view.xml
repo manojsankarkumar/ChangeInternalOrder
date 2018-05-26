@@ -370,7 +370,7 @@
 				<footer>
 					<Bar>
 						<contentRight>
-							<Button id="btnCancel" press="HandleCancel" text="{i18n>cancel}" type="Reject" tooltip="Cancel"/>
+							<Button id="btnCancel" press="handleCancel" text="{i18n>cancel}" type="Reject" tooltip="Cancel"/>
 							<Button id="btnSave" press="handleSave" text="{i18n>save}" type="Emphasized" tooltip="Submits the data"/>
 						</contentRight>
 					</Bar>
